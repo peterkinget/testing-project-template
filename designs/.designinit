@@ -1,0 +1,23 @@
+echo 'Reading User Preferences in /foss/designs/.designinit'
+
+alias ls='ls --color=auto'
+eval "$(dircolors -b /foss/designs/user_setup/dircolors-solarized/dircolors.ansi-dark )"
+
+tree_old() {
+  dir="${1:-.}"
+  find "$dir" -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+}
+
+tree() {
+  dir="${1:-.}"
+  depth="${2:-9999}"  # Default is effectively unlimited depth
+  find "$dir" -maxdepth "$depth" -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+}
+
+export PATH="/foss/designs/user_setup/bin:$PATH"
+
+cd /foss/designs
+
+echo '+-------------------------------------------------+'
+echo '| Initialize the PDK with "source ./setup_pdk.sh" |'
+echo '+-------------------------------------------------+'
