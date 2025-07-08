@@ -42,24 +42,16 @@ def find_gds_files(base_dir):
 
 
 def get_library_info(gds_file):
-    """Get current library name and top cell name from GDS file."""
+    """Get current and target library names from GDS file."""
     try:
         ly = pya.Layout()
         ly.read(gds_file)
         
-        # Get top cell
-        top_cell = ly.top_cell()
-        if not top_cell:
-            return None, None, "No top cell found"
-            
-        top_cell_name = top_cell.name
+        # Get the library name from the layout's meta info
+        current_lib_name = ly.meta_info_value("libname")
         
-        # Force library name to match base filename (without extension)
-        base_filename = os.path.splitext(os.path.basename(gds_file))[0]
-        
-        # Always report "needs update" so we force update to filename
-        current_lib_name = "LIB"  # Always report as LIB to force update
-        target_lib_name = base_filename  # Use filename as target
+        # Target library name should match the base filename (without extension)
+        target_lib_name = os.path.splitext(os.path.basename(gds_file))[0]
         
         return current_lib_name, target_lib_name, None
         
