@@ -35,3 +35,5 @@ tools/
 context/
 
 *.gds.backup
+
+.DS_Store
