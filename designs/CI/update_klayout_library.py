@@ -102,16 +102,17 @@ def create_klayout_symlink(gds_file, cell_name, dry_run=False):
         symlink_name = f"{cell_name}.gds"
         symlink_path = klayout_libs_dir / symlink_name
         
+        # Always remove existing symlink/file to force refresh
         if symlink_path.exists() or symlink_path.is_symlink():
-            # Check if it points to the same file
-            if symlink_path.is_symlink():
-                current_target = os.readlink(symlink_path)
-                if os.path.abspath(current_target) == abs_gds_path:
-                    return True, "Symlink already exists and points to correct file"
-                else:
-                    return False, f"Symlink exists but points to different file: {current_target}"
+            if dry_run:
+                return True, f"Would remove and recreate symlink: {symlink_path} → {abs_gds_path}"
             else:
-                return False, f"File exists but is not a symlink: {symlink_path}"
+                # Remove existing symlink or file
+                if symlink_path.is_symlink():
+                    symlink_path.unlink()
+                else:
+                    # It's a regular file, remove it
+                    symlink_path.unlink()
         
         if dry_run:
             return True, f"Would create symlink: {symlink_path} → {abs_gds_path}"
@@ -176,15 +177,12 @@ def main():
             print(f"  → Will update library name: '{current_lib}' → '{target_lib}'")
             updates_needed.append((gds_file, target_lib))
         
-        # Check symlink status
+        # Always recreate symlinks to force KLayout library reload
         if not args.no_symlinks:
             success, message = create_klayout_symlink(gds_file, target_lib, dry_run=True)
             if success:
-                if "already exists" in message:
-                    print(f"  ✓ KLayout symlink: {message}")
-                else:
-                    print(f"  → KLayout symlink: {message}")
-                    symlink_actions.append((gds_file, target_lib))
+                print(f"  → KLayout symlink: {message}")
+                symlink_actions.append((gds_file, target_lib))
             else:
                 print(f"  ✗ KLayout symlink: {message}")
     
