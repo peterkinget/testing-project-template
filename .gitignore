@@ -33,3 +33,7 @@ tools/
 
 .cursor/
 context/
+
+*.gds.backup
+
+.DS_Store
