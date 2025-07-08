@@ -159,53 +159,42 @@ def main():
     # First pass: analyze all files
     for gds_file in gds_files:
         rel_path = os.path.relpath(gds_file)
-        print(f"\nAnalyzing: {rel_path}")
         
         current_lib, target_lib, error = get_library_info(gds_file)
         
         if error:
-            print(f"  ✗ Error: {error}")
+            print(f"✗ {rel_path}: {error}")
             errors.append((gds_file, error))
             continue
-            
-        print(f"  Current library name: {current_lib}")
-        print(f"  Target library name: {target_lib}")
         
         if current_lib == target_lib:
-            print(f"  ✓ Library name already matches target")
+            print(f"✓ {rel_path}")
         else:
-            print(f"  → Will update library name: '{current_lib}' → '{target_lib}'")
+            print(f"→ {rel_path}: '{current_lib}' → '{target_lib}'")
             updates_needed.append((gds_file, target_lib))
         
         # Always recreate symlinks to force KLayout library reload
         if not args.no_symlinks:
             success, message = create_klayout_symlink(gds_file, target_lib, dry_run=True)
             if success:
-                print(f"  → KLayout symlink: {message}")
                 symlink_actions.append((gds_file, target_lib))
             else:
-                print(f"  ✗ KLayout symlink: {message}")
-    
+                print(f"✗ Symlink failed for {rel_path}: {message}")
+
     # Summary
-    print(f"\n{'='*60}")
-    print(f"Summary:")
-    print(f"  Files analyzed: {len(gds_files)}")
-    print(f"  Updates needed: {len(updates_needed)}")
-    if not args.no_symlinks:
-        print(f"  Symlinks to create: {len(symlink_actions)}")
-    print(f"  Errors: {len(errors)}")
+    print(f"\nSummary: {len(gds_files)} files, {len(updates_needed)} updates, {len(symlink_actions)} symlinks, {len(errors)} errors")
     
     if errors:
-        print(f"\nErrors encountered:")
+        print(f"\nErrors:")
         for gds_file, error in errors:
             print(f"  {os.path.relpath(gds_file)}: {error}")
     
     if not updates_needed and not symlink_actions:
-        print("\nNo actions needed!")
+        print("No actions needed!")
         return 0
     
     if args.dry_run:
-        print(f"\nDry run mode - no changes made")
+        print(f"Dry run mode - no changes made")
         return 0
     
     # Second pass: apply updates
@@ -213,49 +202,40 @@ def main():
     symlink_success_count = 0
     
     if updates_needed:
-        print(f"\nApplying library name updates...")
+        print(f"\nUpdating {len(updates_needed)} libraries...")
         for gds_file, new_lib_name in updates_needed:
             rel_path = os.path.relpath(gds_file)
-            print(f"\nUpdating: {rel_path}")
-            print(f"  Setting library name to: {new_lib_name}")
             
             success, error = update_gds_library_name(gds_file, new_lib_name, args.backup)
             
             if success:
-                print(f"  ✓ Successfully updated")
+                print(f"✓ {rel_path}")
                 success_count += 1
             else:
-                print(f"  ✗ Failed: {error}")
+                print(f"✗ {rel_path}: {error}")
     
     # Create symlinks
     if symlink_actions and not args.no_symlinks:
-        print(f"\nCreating KLayout symlinks...")
+        print(f"\nCreating {len(symlink_actions)} symlinks...")
         for gds_file, cell_name in symlink_actions:
             rel_path = os.path.relpath(gds_file)
-            print(f"\nCreating symlink for: {rel_path}")
             
             success, message = create_klayout_symlink(gds_file, cell_name, dry_run=False)
             
             if success:
-                print(f"  ✓ {message}")
+                print(f"✓ {rel_path}")
                 symlink_success_count += 1
             else:
-                print(f"  ✗ {message}")
+                print(f"✗ {rel_path}: {message}")
     
-    print(f"\n{'='*60}")
-    print(f"Final Summary:")
-    if updates_needed:
-        print(f"  Library updates attempted: {len(updates_needed)}")
-        print(f"  Successful updates: {success_count}")
-        print(f"  Failed updates: {len(updates_needed) - success_count}")
-    
-    if symlink_actions and not args.no_symlinks:
-        print(f"  Symlinks attempted: {len(symlink_actions)}")
-        print(f"  Successful symlinks: {symlink_success_count}")
-        print(f"  Failed symlinks: {len(symlink_actions) - symlink_success_count}")
-    
+    # Final summary
     total_attempted = len(updates_needed) + len(symlink_actions)
     total_successful = success_count + symlink_success_count
+    
+    if total_successful == total_attempted:
+        print(f"\n✓ All operations completed successfully")
+    else:
+        print(f"\n⚠ {total_successful}/{total_attempted} operations successful")
     
     return 0 if total_successful == total_attempted else 1
 
