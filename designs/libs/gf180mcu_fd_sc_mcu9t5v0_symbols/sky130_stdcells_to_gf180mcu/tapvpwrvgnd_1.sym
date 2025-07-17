@@ -15,9 +15,9 @@ v {xschem version=3.1.0 file_version=1.2
 }
 K {type=primitive
 format="@name @VGND @VPWR @prefix\\\\tapvpwrvgnd_1"
-template="name=x1 VGND=VGND VPWR=VPWR prefix=sky130_fd_sc_hd__ "
+template="name=x1 VGND=VGND VPWR=VPWR prefix=gf180mcu_fd_sc_mcu9t5v0__ "
 extra="VGND VPWR prefix"
-verilogprefix=sky130_fd_sc_hd__
+verilogprefix=gf180mcu_fd_sc_mcu9t5v0__
 highlight=true}
 T {@symname} 0 -6 0 0 0.3 0.3 {hcenter=true}
 T {@name} 75 -22 0 0 0.2 0.2 {}

@@ -16,10 +16,10 @@ v {xschem version=3.1.0 file_version=1.2
 G {}
 K {type=primitive
 function2="1 d ~ 2 & x 0 & |"
-format="@name @@D @@GATE @VGND @VNB @VPB @VPWR @@Q @prefix\\\\dlxtp_1"
-template="name=x1 VGND=VGND VNB=VNB VPB=VPB VPWR=VPWR prefix=sky130_fd_sc_hd__ "
+format="@name @@D @@GATE @VPWR @VNB @VPB @VGND @@Q @prefix\\\\dlxtp_1"
+template="name=x1 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ "
 extra="VGND VNB VPB VPWR prefix"
-verilogprefix=sky130_fd_sc_hd__
+verilogprefix=gf180mcu_fd_sc_mcu9t5v0__
 highlight=false
 }
 V {}
