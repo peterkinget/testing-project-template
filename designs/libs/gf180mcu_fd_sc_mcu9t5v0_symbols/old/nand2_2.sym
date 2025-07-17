@@ -1,0 +1,44 @@
+v {xschem version=3.4.7 file_version=1.2}
+G {}
+K {type=primitive
+format="@name @pinlist @prefix1@prefix2\\\\__@symname"
+template="name=x1 prefix1=gf180mcu_fd_sc_mcu prefix2=9t5v0"
+verilogprefix=gf180mcu_fd_sc_mcu9t5v0
+highlight=true
+}
+V {}
+S {type=primitive
+}
+E {}
+L 4 240 -390 280 -390 {}
+L 4 240 -340 280 -340 {}
+L 4 530 -370 570 -370 {}
+L 4 370 -460 370 -420 {}
+L 4 440 -460 440 -420 {}
+L 4 450 -280 450 -240 {}
+L 4 370 -280 370 -240 {}
+B 5 237.5 -392.5 242.5 -387.5 {name=A1
+dir=in}
+B 5 237.5 -342.5 242.5 -337.5 {name=A2
+dir=in}
+B 5 567.5 -372.5 572.5 -367.5 {name=ZN
+dir=out}
+B 5 367.5 -462.5 372.5 -457.5 {name=VDD
+dir=inout}
+B 5 437.5 -462.5 442.5 -457.5 {name=VNW
+dir=inout}
+B 5 447.5 -242.5 452.5 -237.5 {name=VPW
+dir=inout}
+B 5 367.5 -242.5 372.5 -237.5 {name=VSS
+dir=inout}
+P 4 5 280 -420 530 -420 530 -280 280 -280 280 -420 {}
+T {A1} 290 -400 0 0 0.4 0.4 {}
+T {A2} 290 -350 0 0 0.4 0.4 {}
+T {ZN} 490 -380 0 0 0.4 0.4 {}
+T {ZN} 360 -410 0 0 0.4 0.4 {}
+T {VNW} 430 -410 0 0 0.4 0.4 {}
+T {VPW} 430 -310 0 0 0.4 0.4 {}
+T {VSS} 350 -310 0 0 0.4 0.4 {}
+T {@name} 470 -450 0 0 0.4 0.4 {}
+T {@symname} 350 -380 0 0 0.4 0.4 {}
+T {@prefix2} 370 -350 0 0 0.4 0.4 {}
