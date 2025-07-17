@@ -1,3 +1,0 @@
-[submodule "designs/libs/globalfoundries-pdk-libs-gf180mcu_osu_sc"]
-	path = designs/libs/globalfoundries-pdk-libs-gf180mcu_osu_sc
-	url = https://github.com/stineje/globalfoundries-pdk-libs-gf180mcu_osu_sc.git
