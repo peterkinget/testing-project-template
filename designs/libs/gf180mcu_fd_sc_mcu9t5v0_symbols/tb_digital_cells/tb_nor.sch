@@ -12,8 +12,8 @@ ypos2=4
 divy=5
 subdivy=1
 unity=1
-x1=3.0217287e-07
-x2=4.7134071e-07
+x1=0
+x2=2e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -33,7 +33,7 @@ rainbow=0
 autoload=1
 digital=1
 sim_type=tran
-rawfile=$netlist_dir/tb_nand.raw}
+rawfile=$netlist_dir/tb_nor.raw}
 N -420 210 -420 240 {lab=GND}
 N -420 100 -420 150 {lab=VSSd}
 N -420 -20 -420 40 {lab=VDDd}
@@ -83,8 +83,8 @@ OP
 show all
 
 * DC V3 0 3.3 0.01
-TRAN 0.1n 1u
-write tb_nand.raw
+TRAN 0.1n 200n
+write tb_nor.raw
 .endc
 "}
 C {devices/code_shown.sym} -750 -130 0 0 {name=Models only_toplevel=false
@@ -121,7 +121,7 @@ device=polarized_capacitor}
 C {devices/lab_wire.sym} 240 205 0 0 {name=p7 sig_type=std_logic lab=VSSd}
 C {lab_wire.sym} 155 240 0 0 {name=p8 sig_type=std_logic lab=out_2}
 C {lab_wire.sym} 160 350 0 0 {name=p9 sig_type=std_logic lab=out_4}
-C {launcher.sym} -377.5 405 0 0 {name=h5
+C {launcher.sym} -377.5 395 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_nand.raw tran"
+tclcommand="xschem raw_read $netlist_dir/tb_nor.raw tran"
 }

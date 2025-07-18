@@ -3,6 +3,9 @@
 - Peter Kinget
 - July 17 2025
 
+
+## Symbol Creation
+
 Doing the `gf180mcu_fd_sc_mcu9t5v0` to start. 
 
 1. Copied the Sky130A symbols from `/foss/pdks/sky130A/libs.tech/xschem/sky130_stdcells` into `./sky130_stdcells_to_gf180mcu` folder
@@ -25,3 +28,15 @@ replacements = [
 5. The flip-flop mapping is less straightforward since the two technologies have different types; the following have been created:
 - `dffq_{1,2,4}` based on the `dfxtp{1,2,4}` sky130 symbol
 
+## Digital Testbenches
+
+- A couple of test benches have been created that use the symbols
+- Check out the `tb_digital_cells` folder
+- The schematics have the necessary `.include` statements to load the spice netlists for the digital standard cells. 
+- The test benches are run at 3.3V, although the cells have a nominal supply of 5V. 
+
+## Work in progress:
+
+> Table provided by ChatGPT -- Use with caution!!
+
+![alt text](./sky130_stdcells_to_gf180mcu/image.png)

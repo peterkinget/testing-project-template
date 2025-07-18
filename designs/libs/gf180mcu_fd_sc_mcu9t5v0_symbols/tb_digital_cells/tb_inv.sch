@@ -4,7 +4,7 @@ K {}
 V {}
 S {}
 E {}
-B 2 -672.5 432.5 147.5 712.5 {flags=graph
+B 2 -672.5 432.5 147.5 712.5 {flags=graph,unlocked
 y1=0
 y2=4
 ypos1=0
@@ -12,8 +12,8 @@ ypos2=4
 divy=5
 subdivy=1
 unity=1
-x1=3.0217287e-07
-x2=4.7134071e-07
+x1=3.1418376e-07
+x2=3.711649e-07
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -38,6 +38,29 @@ out_3
 out_2
 out_1
 a1"}
+B 2 307.5 357.5 1107.5 757.5 {flags=graph
+y1=0
+y2=3.5
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=6.2983695e-08
+x2=7.2337727e-08
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=ro_out
+color=4
+dataset=-1
+unitx=1
+logx=0
+logy=0
+autoload=1
+rawfile=$netlist_dir/tb_inv.raw
+sim_type=tran}
 N -420 210 -420 240 {lab=GND}
 N -420 100 -420 150 {lab=VSSd}
 N -420 -20 -420 40 {lab=VDDd}
@@ -57,6 +80,15 @@ N 75 285 80 285 {lab=out_8}
 N 75 285 75 292.5 {lab=out_8}
 N 25 285 75 285 {lab=out_8}
 N -245 285 -190 285 {lab=out_6}
+N 475 275 505 275 {lab=#net1}
+N 585 275 625 275 {lab=#net2}
+N 705 275 745 275 {lab=#net3}
+N 825 275 875 275 {lab=#net4}
+N 955 275 985 275 {lab=RO_out}
+N 985 210 985 275 {lab=RO_out}
+N 390 210 985 210 {lab=RO_out}
+N 390 210 390 275 {lab=RO_out}
+N 390 275 395 275 {lab=RO_out}
 C {devices/vsource.sym} -420 180 0 0 {name=V1 value=0 savecurrent=false}
 C {devices/gnd.sym} -420 240 0 0 {name=l1 lab=GND}
 C {devices/vsource.sym} -420 70 0 0 {name=V2 value=3.3 savecurrent=false}
@@ -65,7 +97,7 @@ C {devices/lab_wire.sym} -420 10 0 0 {name=p3 sig_type=std_logic lab=VDDd}
 C {devices/code_shown.sym} -740 120 0 0 {name=Simulation only_toplevel=false value="
 .param Cload = 2p
 .param VDD = 3.3
-.param Tbit = 10n
+.param Tbit = 25n
 
 .control
 
@@ -76,8 +108,8 @@ OP
 show all
 
 * DC V3 0 3.3 0.01
-TRAN 0.1n 1u
-write tb_nand.raw
+TRAN 0.1n 0.5u
+write tb_inv.raw
 .endc
 "}
 C {devices/code_shown.sym} -750 -130 0 0 {name=Models only_toplevel=false
@@ -91,7 +123,7 @@ C {devices/vsource.sym} -292.5 162.5 0 0 {name=VDATA value="pulse 0 \{VDD\} 0 \{
 C {devices/lab_wire.sym} -247.5 132.5 0 0 {name=p4 sig_type=std_logic lab=A1}
 C {launcher.sym} -377.5 405 0 0 {name=h5
 descr="load waves" 
-tclcommand="xschem raw_read $netlist_dir/tb_nand.raw tran"
+tclcommand="xschem raw_read $netlist_dir/tb_inv.raw tran"
 }
 C {libs/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_1.sym} -152.5 132.5 0 0 {name=x4 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
 C {libs/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_2.sym} -17.5 132.5 0 0 {name=x5 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
@@ -118,3 +150,9 @@ C {lab_wire.sym} 72.5 285 0 0 {name=p8 sig_type=std_logic lab=out_8}
 C {devices/lab_wire.sym} 45 352.5 0 0 {name=p9 sig_type=std_logic lab=VSSd}
 C {libs/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_16.sym} -150 285 0 0 {name=x7 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
 C {lab_wire.sym} -197.5 285 0 0 {name=p7 sig_type=std_logic lab=out_6}
+C {libs/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_20.sym} 435 275 0 0 {name=x9 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {libs/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_20.sym} 545 275 0 0 {name=x10 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {libs/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_20.sym} 665 275 0 0 {name=x11 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {libs/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_20.sym} 785 275 0 0 {name=x12 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {libs/gf180mcu_fd_sc_mcu9t5v0_symbols/inv_20.sym} 915 275 0 0 {name=x13 VGND=VSSd VNB=VDDd VPB=VSSd VPWR=VDDd prefix=gf180mcu_fd_sc_mcu9t5v0__ }
+C {lab_wire.sym} 540 210 0 0 {name=p16 sig_type=std_logic lab=RO_out}
