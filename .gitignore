@@ -40,3 +40,4 @@ context/
 *.gds.backup
 
 designs/user_config
+designs/sandbox

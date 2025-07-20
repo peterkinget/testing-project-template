@@ -1,0 +1,21 @@
+v {xschem version=3.4.7 file_version=1.2}
+G {}
+K {type=subcircuit
+format="@name @pinlist @symname T_BIT=@T_BIT OUT_HIGH=@OUT_HIGH OUT_LOW=@OUT_LOW"
+template="name=x1 T_BIT=10n OUT_HIGH=3.3 OUT_LOW=0 "
+}
+V {}
+S {}
+E {}
+L 4 130 40 150 40 {}
+B 5 147.5 37.5 152.5 42.5 {name=OUT dir=out}
+P 4 5 130 -10 -180 -10 -180 110 130 110 130 -10 {}
+T {@symname} -68.5 -6 0 0 0.3 0.3 {}
+T {@name} 135 -22 0 0 0.2 0.2 {}
+T {OUT} 125 36 0 1 0.2 0.2 {}
+T {OUT_HIGH: @OUT_HIGH} -170 20 0 0 0.2 0.2 {}
+T {OUT_LOW: @OUT_LOW} -170 40 0 0 0.2 0.2 {}
+T {T_BIT: @T_BIT} -170 60 0 0 0.2 0.2 {}
+T {file_name: /foss/designs/libs/sim_support/bit_source.text 
+(can be edited in vbit_file.sch)
+} -170 80 0 0 0.2 0.2 {}

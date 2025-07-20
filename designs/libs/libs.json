@@ -1,5 +1,19 @@
 {
+  "libs_gf180mcu_fd_sc_mcu9t5v0": "/foss/designs/libs/example_libs/gf180mcu_fd_sc_mcu9t5v0.gds",
+  "libs_gf180mcu_fd_sc_mcu7t5v0": "/foss/designs/libs/example_libs/gf180mcu_fd_sc_mcu7t5v0.gds",
+  "libs_gf180mcu_fd_io": "/foss/designs/libs/example_libs/gf180mcu_fd_io.gds",
+  "core_analog_ring_osc_inv": "/foss/designs/libs/core_analog/ring_osc_inv/ring_osc_inv.gds",
+  "core_analog_PLL": "/foss/designs/libs/core_analog/PLL/PLL.gds",
   "core_analog_unit_nmos": "/foss/designs/libs/core_analog/unit_nmos/unit_nmos.gds",
+  "core_analog_PFD": "/foss/designs/libs/core_analog/PFD/PFD.gds",
+  "core_analog_ring_osc": "/foss/designs/libs/core_analog/ring_osc/ring_osc.gds",
+  "core_analog_ota_5t": "/foss/designs/libs/core_analog/ota_5t/ota_5t.gds",
+  "core_analog_nmos_array": "/foss/designs/libs/core_analog/nmos_arrary/nmos_array.gds",
+  "core_analog_divider": "/foss/designs/libs/core_analog/divider/divider.gds",
   "core_analog_unit_pmos": "/foss/designs/libs/core_analog/unit_pmos/unit_pmos.gds",
-  "core_analog_nmos_array": "/foss/designs/libs/core_analog/nmos_array/nmos_array.gds"
+  "core_analog_CP": "/foss/designs/libs/core_analog/CP/CP.gds",
+  "core_analog_PFD_CP": "/foss/designs/libs/core_analog/PFD_CP/PFD_CP.gds",
+  "core_analog_loop_filter": "/foss/designs/libs/core_analog/loop_filter/loop_filter.gds",
+  "pad_frame_pad_frame_top": "/foss/designs/libs/pad_frame/pad_frame_top/pad_frame_top.gds",
+  "pad_frame_pad_analog_io": "/foss/designs/libs/pad_frame/pad_analog_io/pad_analog_io.gds"
 }
