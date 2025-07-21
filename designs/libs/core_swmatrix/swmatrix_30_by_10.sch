@@ -4,6 +4,13 @@ K {}
 V {}
 S {}
 E {}
+T {Each row had a 10-stage shift register
+The output of the last stage is fed as input
+of the first stage of the next row.} 20 52.5 0 0 0.3 0.3 {}
+T {This is a 5 by 10 Switch Matrix (for now)
+- the transmission gates are an empty cell
+- the BUSES are the columns
+- the PINS are the rows} 20 -157.5 0 0 0.3 0.3 {}
 N -130 -10 0 -10 {lab=D_in,D_out_row[1:4]}
 N -170 30 0 30 {lab=PHI_2}
 N -170 10 0 10 {lab=PHI_1}
@@ -30,3 +37,4 @@ C {lab_wire.sym} 360 30 0 1 {name=p9 sig_type=std_logic lab=PIN[1:5]
 }
 C {opin.sym} 540 -10 0 0 {name=p10 lab=D_out
 }
+C {title.sym} -142.5 255 0 0 {name=l2 author="Peter Kinget"}

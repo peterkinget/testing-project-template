@@ -4,6 +4,11 @@ K {}
 V {}
 S {}
 E {}
+T {This is a 10-stage shift register that controls
+10 transmission gates between the pin and each BUS.
+
+The transmission gates are empty cells but
+with the correct interface.} 25 -90 0 0 0.2 0.2 {}
 N 300 120 427.5 120 {lab=pin}
 N 300 100 427.5 100 {lab=BUS[1:10]}
 N -80 20 0 20 {lab=PHI_1}
@@ -23,3 +28,4 @@ C {lab_wire.sym} -20 100 0 0 {name=p5 sig_type=std_logic lab=Q[1:9],D_out}
 C {iopin.sym} 427.5 100 0 0 {name=p6 lab=BUS[1:10]}
 C {ipin.sym} -80 0 0 0 {name=p7 lab=D_in}
 C {opin.sym} 425 0 0 0 {name=p8 lab=D_out}
+C {title.sym} -62.5 232.5 0 0 {name=l2 author="Peter Kinget"}
