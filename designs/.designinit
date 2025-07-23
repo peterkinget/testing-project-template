@@ -36,6 +36,8 @@ export PATH="/foss/designs/user_setup/bin:$PATH"
 # Show PDK in the prompt
 export PS1="\[\e[91m\]PDK: $(echo $PDK)\[\e[0m\] ${PS1}"
 export PS1='\[\e[91m\]PDK: $(echo $PDK) \[\033[0;32m\]\w >\[\033[0;38m\] '
+
+alias GDS3D="GDS3D -p /foss/designs/scripts/gf180mcu.txt -i"
 alias grep="grep -i"
 
 if [ ! -f "$HOME/.config/xfce4/.init_done" ]; then
