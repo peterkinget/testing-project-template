@@ -4,3 +4,6 @@
 [submodule "designs/libs/switch_matrix_gf180mcu_9t5v0"]
 	path = designs/libs/switch_matrix_gf180mcu_9t5v0
 	url = https://github.com/mosbiuschip/switch_matrix_gf180mcu_9t5v0.git
+[submodule "designs/libs/scratchpad/SSCS-Chipathon-2025_AC3E-Chile-team"]
+	path = designs/libs/scratchpad/SSCS-Chipathon-2025_AC3E-Chile-team
+	url = https://github.com/JorgeMarinN/SSCS-Chipathon-2025_AC3E-Chile-team.git
