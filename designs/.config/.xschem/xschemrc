@@ -2,5 +2,8 @@
 source $env(PDK_ROOT)/$env(PDK)/libs.tech/xschem/xschemrc
 
 # Set the library path so that xschem doesn't have to be launched at /foss/designs
-set XSCHEM_LIBRARY_PATH ${XSCHEM_LIBRARY_PATH}:/foss/designs
+# set XSCHEM_LIBRARY_PATH ${XSCHEM_LIBRARY_PATH}:$env(DESIGNS)/libs/switch_matrix:$env(DESIGNS)/libs/gf180mcu_fd_sc_mcu9t5v0_symbols:$env(DESIGNS)/libs
+set XSCHEM_LIBRARY_PATH ${XSCHEM_LIBRARY_PATH}:$env(DESIGNS)/libs:$env(DESIGNS)
+
+set netlist_dir "/foss/designs/simulations"
 
