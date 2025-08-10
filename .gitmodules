@@ -7,3 +7,9 @@
 [submodule "designs/libs/scratchpad/SSCS-Chipathon-2025_AC3E-Chile-team"]
 	path = designs/libs/scratchpad/SSCS-Chipathon-2025_AC3E-Chile-team
 	url = https://github.com/JorgeMarinN/SSCS-Chipathon-2025_AC3E-Chile-team.git
+[submodule "designs/libs/scratchpad/Mosbious_2025_Spikcore.git"]
+	path = designs/libs/scratchpad/Mosbious_2025_Spikcore.git
+	url = https://github.com/RoyceRichmond/Mosbious_2025_Spikcore.git
+[submodule "designs/libs/scratchpad/openfasoc-padframe"]
+	path = designs/libs/scratchpad/openfasoc-padframe
+	url = git@github.com:idea-fasoc/openfasoc-tapeouts.git
