@@ -13,3 +13,6 @@
 [submodule "designs/libs/scratchpad/openfasoc-padframe"]
 	path = designs/libs/scratchpad/openfasoc-padframe
 	url = git@github.com:idea-fasoc/openfasoc-tapeouts.git
+[submodule "designs/libs/scratchpad/sscs-chipathon2025-LNA"]
+	path = designs/libs/scratchpad/sscs-chipathon2025-LNA
+	url = git@github.com:mthudaa/sscs-chipathon2025-LNA.git
