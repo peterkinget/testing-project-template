@@ -16,3 +16,6 @@
 [submodule "designs/libs/scratchpad/sscs-chipathon2025-LNA"]
 	path = designs/libs/scratchpad/sscs-chipathon2025-LNA
 	url = git@github.com:mthudaa/sscs-chipathon2025-LNA.git
+[submodule "designs/libs/scratchpad/PLL_MOSbius"]
+	path = designs/libs/scratchpad/PLL_MOSbius
+	url = git@github.com:AndrewwChon/PLL_MOSbius.git
