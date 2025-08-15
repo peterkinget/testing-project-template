@@ -19,3 +19,7 @@
 [submodule "designs/libs/scratchpad/PLL_MOSbius"]
 	path = designs/libs/scratchpad/PLL_MOSbius
 	url = git@github.com:AndrewwChon/PLL_MOSbius.git
+[submodule "scratchpad/sscs-chipathon-2025"]
+	path = scratchpad/sscs-chipathon-2025
+	url = git@github.com:sscs-ose/sscs-chipathon-2025.git
+	branch = main
